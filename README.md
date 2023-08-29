@@ -24,7 +24,7 @@ sudo apt-get install build-essential git cmake automake libboost-all-dev libqren
 
 Clone the source repository with git and build the release version with the following commands:
 ```
-Modify ekronewallet-infinity/src/qml/Ekrone/UI/AppWindow.qml
+Modify ekronewallet/src/qml/Ekrone/UI/AppWindow.qml
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 
