@@ -1,7 +1,7 @@
 set(UN_PROJECT_NAME "Ekrone")
 set(UN_CURRENCY_DISPLAY_NAME "Ekrone")
 set(UN_CURRENCY_TICKER "XEKR")
-set(UN_VERSION 1.0.9)
+set(UN_VERSION 1.0.0)
 set(UN_COPYRIGHT "Copyright (c) 2023 Ekrone.eu")
 set(UN_IDENTIFIER "org.ekrone.Ekrone")
 set(UN_CONTACT "https://ekrone.eu/")
