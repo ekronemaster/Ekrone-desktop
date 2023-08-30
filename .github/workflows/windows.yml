@@ -50,8 +50,8 @@ jobs:
           $find = '^set\(CMAKE_PREFIX_PATH.+'
           $replace = "set(CMAKE_PREFIX_PATH `"$($qt5_cmake)`")"
           (Get-Content $file) | %{$_ -replace $find, $replace} | Set-Content $file
-          # Update installer/windows/ConcealInstaller.iss with the current version
-          //$file = "installer/windows/ConcealInstaller.iss"
+          # Update installer/windows/EkroneInstaller.iss with the current version
+          //$file = "installer/windows/EkroneInstaller.iss"
           $find = "^#define AppVersion.+"
           $replace = "#define AppVersion '$ekr_ver'"
           (Get-Content $file) | %{$_ -replace $find, $replace} | Set-Content $file
