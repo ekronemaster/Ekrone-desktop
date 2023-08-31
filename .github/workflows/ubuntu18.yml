@@ -17,34 +17,34 @@ jobs:
         run: |
           sudo apt update -y
           sudo apt install -y build-essential git cmake automake libboost-all-dev libqrencode-dev qt5-default qttools5-dev qttools5-dev-tools qtdeclarative5-dev qtquickcontrols2-5-dev qtmultimedia5-dev qtwebengine5-dev libqt5webenginewidgets5 libssl-dev libevent-dev qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-shapes qml-module-qt-labs-qmlmodels qml-module-qt-labs-platform qml-module-qtwebengine
-      - name: Clone ultranote-core and update submoudles
+      - name: Clone ekrone-core and update submoudles
         run: |
           rm -rf cryptonote
-          git clone https://github.com/xun-project/ultranotei-core.git cryptonote
+          git clone https://github.com/ekronemaster/Ekrone-core.git cryptonote
           git submodule init
           git submodule update
       - name: Build
         id: build
         run: |
-          xuni_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
-          release_name=xuni-cli-desktop-ubuntu-1804-v"$xuni_ver"
+          ekr_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
+          release_name=ekr-cli-desktop-ubuntu-1804-v"$ekr_ver"
           build_folder="build/release"
           make -j4 build-release
           mkdir $release_name
           mkdir -p $release_name/icon
-          mv $build_folder/ultranote-desktop $release_name
-          cp ultranote-desktop.desktop $release_name
-          cp src/images/UltraNoteLogo.png $release_name/icon
+          mv $build_folder/ekrone-desktop $release_name
+          cp ekrone-desktop.desktop $release_name
+          cp src/images/EkroneLogo.png $release_name/icon
           tar -czf "$release_name".tar.gz "$release_name"
           sha256=$(shasum -a 256 "$release_name".tar.gz | awk '{print toupper($1)}')
           echo "sha256=${sha256}" >> $GITHUB_OUTPUT
           echo "release_name=${release_name}.tar.gz" >> $GITHUB_OUTPUT
-          echo "xuni_ver=${xuni_ver}" >> $GITHUB_OUTPUT
+          echo "ekr_ver=${ekr_ver}" >> $GITHUB_OUTPUT
       - name: Create Release
         uses: softprops/action-gh-release@v0.1.15
         with:
           files: ${{ steps.build.outputs.release_name }}
-          name: UltraNote Desktop v${{ steps.build.outputs.xuni_ver }}
+          name: Ekrone Desktop v${{ steps.build.outputs.ekr_ver }}
           body: |
             [Download for Ubuntu 18.04](../../releases/download/${{ steps.build.outputs.xuni_ver }}/${{ steps.build.outputs.release_name }}) **${{ steps.build.outputs.release_name }}**
             `SHA256 : ${{ steps.build.outputs.sha256 }}`

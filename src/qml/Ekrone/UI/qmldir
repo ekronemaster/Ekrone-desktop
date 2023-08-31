@@ -1,6 +1,0 @@
-module Ekrone.UI
-
-singleton Theme 1.0 Theme.qml
-singleton LegacyTranslations 1.0 LegacyTranslations.qml
-AppWindow 1.0 AppWindow.qmls
-Splash 1.0 Splash.qml
