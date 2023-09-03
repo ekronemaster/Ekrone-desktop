@@ -365,7 +365,7 @@ set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOUR
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
 
 # zlib
-add_subdirectory(zlib EXCLUDE_FROM_ALL)
+# add_subdirectory(zlib EXCLUDE_FROM_ALL)
 
 # translations
 set(MainTranslationSourceDir "${CMAKE_CURRENT_SOURCE_DIR}/src/qml")
