@@ -88,7 +88,7 @@ set(VERSION "${Ekrone_VERSION}")
 set(CN_CURRENCY_DISPLAY_NAME ${UN_CURRENCY_DISPLAY_NAME})
 set(CN_CURRENCY_TICKER ${UN_CURRENCY_TICKER})
 configure_file("cryptonote/src/version.h.in" "version.h")
-configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
+configure_file("src/EkroneWallet.h.in" "EkroneWallet.h")
 
 # export for C compiler
 add_definitions(-DVERSION=\"${Ekrone_VERSION}\")
