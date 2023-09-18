@@ -43,7 +43,7 @@ jobs:
         shell: powershell
         run: |
           $search = "set\(UN_VERSION "
-          $xuni_ver = ((Get-Content Ekrone.cmake | Select-String $search) | %{$_ -replace $search, ""}) | %{$_ -replace "\)", ""}
+          $ekr_ver = ((Get-Content Ekrone.cmake | Select-String $search) | %{$_ -replace $search, ""}) | %{$_ -replace "\)", ""}
           # Update "CMakeLists.txt" with cmake dir
           $qt5_cmake = "${{ env.Qt5_Dir }}/lib/cmake" -replace '[\\]', '\\' -replace '[/]', '\\'
           $file = "CMakeLists.txt"
